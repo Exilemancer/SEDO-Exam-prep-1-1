@@ -15,7 +15,7 @@ function calculateAndDisplay(fn) {
   const rawB = document.getElementById('b').value;
 
   if (rawA === '' || rawB === '') {
-    document.getElementById('result').textContent = 'Please fill both 2 inputs';
+    document.getElementById('result').textContent = 'Please fill both 3 inputs';
     return;
   }
 
