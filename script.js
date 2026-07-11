@@ -15,22 +15,16 @@ function calculateAndDisplay(fn) {
   const rawB = document.getElementById('b').value;
 
   if (rawA === '' || rawB === '') {
-    document.getElementById('result').textContent = 'Please fill both inputs now';
+    document.getElementById('result').textContent = 'Please fill both 3 inputs';
     return;
   }
 
   const a = Number(rawA);
   const b = Number(rawB);
-  const a = Number(document.getElementById('a').value);
-  const b = Number(document.getElementById('b').value);
   document.getElementById('result').textContent = fn(a, b);
 }
 
-document.getElementById('btn-add')
-  .addEventListener('click', () => calculateAndDisplay(add));
-
-document.getElementById('btn-subtract')
-  .addEventListener('click', () => calculateAndDisplay(subtract));
-
-document.getElementById('btn-multiply')
-  .addEventListener('click', () => calculateAndDisplay(multiply));
+['add', 'subtract', 'multiply'].forEach(op => {
+  document.getElementById(`btn-${op}`)
+    .addEventListener('click', () => calculateAndDisplay(window[op]));
+});
